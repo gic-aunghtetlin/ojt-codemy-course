@@ -1,0 +1,38 @@
+<div id="<%= dom_id friend %>">
+  <p>
+    <strong>First name:</strong>
+    <%= friend.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= friend.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= friend.email %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= friend.phone %>
+  </p>
+
+  <p>
+    <strong>Twitter:</strong>
+    <%= friend.twitter %>
+  </p>
+
+  <div>
+    <% if friend.user == current_user %>
+      <div class="container row my-3">
+        <%= link_to "Edit", edit_friend_path(@friend), class: "btn btn-sm btn-secondary mr-3" %>
+        <%= button_to "Delete", @friend, method: :delete, class: "btn btn-sm btn-danger", data: {confirm: 'Are you sure?'} %>
+      </div>
+    <% end %>
+    <br/>
+    <%= link_to "Back to friends", friends_path %>
+  </div>
+
+</div>
